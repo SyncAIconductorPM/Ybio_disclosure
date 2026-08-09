@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "name": "ybio-disclosure",
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "css/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/system/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/dart/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/kind/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/parse/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/classify/(.*)",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/docs",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/openapi.json",
+      "dest": "api/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
