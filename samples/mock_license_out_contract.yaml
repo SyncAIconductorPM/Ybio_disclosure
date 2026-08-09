@@ -1,0 +1,39 @@
+# ===================================================================
+# YBioLogics 가상 공시 이슈 데이터 1 - 주요사항보고서 (단일판매·공급계약체결 / 기술이전)
+# ===================================================================
+
+event: 주요사항보고서(단일판매·공급계약체결)
+reporter: (주)와이바이오로직스
+corp_code: "00812345"
+stock_code: "338840"
+ceo_nm: 장우익
+title: 단일판매·공급계약체결 (면역항암제 YBL-101 글로벌 기술이전 계약)
+
+date: "2026-08-05"
+board_resolution_date: "2026-08-05"
+contract_start_date: "2026-08-05"
+contract_end_date: "2041-08-05"
+
+counterparty: GlobalBiotech Inc.
+counterparty_relation: 해당사항 없음 (특수관계인 아님)
+
+# 금액 필드 (원)
+amount: 300000000000
+upfront_fee: 30000000000
+milestone_amount: 270000000000
+royalty_rate: "8.5%"
+
+# 최근 매출액 대비 비율
+recent_revenue: 15200000000
+ratio: "1973.68%"
+
+# 공시 상세 내역
+contract_details:
+  pipeline: YBL-101 (면역항암 신약 후보물질)
+  territory: 전 세계 (Global)
+  right_type: 독점적 개발 및 상업화 권리
+  conditions: 단계별 임상 승인 및 품목 허가 달성 시 마일스톤 지급
+
+notes:
+  - 본 계약 금액은 마일스톤 달성에 따라 변동될 수 있습니다.
+  - 환율 변동 및 Clinical Trial 경과에 따라 최종 수령액이 확정됩니다.

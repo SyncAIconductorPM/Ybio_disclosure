@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="공시업무 자동화 시스템 – 최종 제출. 공동인증서 인증 후 DART/KIND에 공시 문서를 제출합니다." />
+  <title>최종 제출 – Disclosure AI</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- 사이드바 -->
+  <aside id="sidebar" class="sidebar"></aside>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="main-content">
+
+    <!-- 상단 헤더 (보안 세션 배지 포함) -->
+    <header id="page-header" class="page-header">
+      <h1 class="page-header-title" id="header-static-title">공시 자동화 시스템</h1>
+      <!-- 보안 세션 배지 -->
+      <div class="secure-session-badge" aria-label="보안 세션 활성" role="status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        Secure Session Active
+      </div>
+    </header>
+
+    <!-- 페이지 콘텐츠 -->
+    <main class="page-content">
+
+      <h2 class="submit-page-title">최종 공시 제출</h2>
+      <p class="submit-page-desc">검증된 공시 문서를 외부 공시 시스템에 최종 제출합니다.</p>
+
+      <div class="submit-layout">
+
+        <!-- 좌측: 인증 & 완료 영역 -->
+        <div>
+
+          <!-- 공동인증서 인증 & DART 포털 직접 제출 박스 -->
+          <div class="cert-auth-box" id="cert-auth-box" aria-label="공동인증서 인증">
+            <div class="cert-auth-header">
+              <svg class="cert-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <div>
+                <h3 class="cert-auth-title">DART / KIND 전자공시 최종 제출 및 인증</h3>
+                <p class="cert-auth-desc">(주)와이바이오로직스 허예설 과장 명의의 공동인증서로 금융감독원 DART 및 거래소 KIND에 최종 공시를 제출합니다.</p>
+              </div>
+            </div>
+
+            <!-- 인증서 선택 + 비밀번호 폼 -->
+            <div class="cert-form-row">
+              <!-- USB 아이콘 -->
+              <div class="usb-icon-area" role="img" aria-label="USB 인증서">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 2v12m0 0l-3-3m3 3l3-3"/>
+                  <path d="M5 19h14a2 2 0 0 0 0-4H5a2 2 0 0 0 0 4z"/>
+                  <path d="M8 15V9a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6"/>
+                  <rect x="9" y="6" width="2" height="2" rx="0.5"/>
+                  <rect x="13" y="6" width="2" height="2" rx="0.5"/>
+                </svg>
+              </div>
+
+              <!-- 인증 폼 -->
+              <div class="flex flex-col gap-4" style="flex:1">
+                <div class="form-group">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                    <label class="form-label required" for="cert-select" style="margin:0;">등록 및 선택된 법인 공동인증서</label>
+                    <button type="button" class="btn btn-ghost btn-sm" id="btn-load-cert-file" style="font-size:0.75rem;color:var(--color-primary);" onclick="document.getElementById('cert-file-input').click()">
+                      📁 내 PC 인증서 불러오기 (.pfx/.der)
+                    </button>
+                    <!-- 실제 컴퓨터 파일 선택 인풋 (hidden) -->
+                    <input type="file" id="cert-file-input" style="display:none" accept=".pfx,.der,.key" onchange="handleCertFileLoad(event)" />
+                  </div>
+                  <div class="select-wrapper">
+                    <select
+                      id="cert-select"
+                      class="form-select"
+                      aria-required="true"
+                      aria-label="공동인증서 선택"
+                      onchange="handleCertSelectChange(event)"
+                    >
+                      <option value="cert-ybio-01">(주)와이바이오로직스 - 법인 범용 공동인증서 (SignKorea, 2027-12-31 만료)</option>
+                      <option value="cert-ybio-02">(주)와이바이오로직스 - DART 전용 공시인증서 (KOSCOM, 2026-11-15 만료)</option>
+                      <option value="load-new">+ 내 컴퓨터에서 새 인증서 파일 불러오기...</option>
+                    </select>
+                  </div>
+                  <p style="font-size:0.75rem;color:var(--color-text-secondary);margin-top:4px;" id="cert-info-detail">
+                    인증서 주체: CN=(주)와이바이오로직스, OU=법인전용, O=SignKorea
+                  </p>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label required" for="cert-password">인증서 비밀번호</label>
+                  <div class="password-input-wrapper">
+                    <input
+                      type="password"
+                      id="cert-password"
+                      class="form-input"
+                      value="password123!"
+                      placeholder="인증서 암호화 해독 비밀번호 입력"
+                      autocomplete="current-password"
+                      aria-required="true"
+                    />
+                  </div>
+                  <p style="font-size:0.75rem;color:var(--color-text-secondary);margin-top:4px;">
+                    * 입력하신 비밀번호로 PKCS#12 비대칭키 해독 검증이 실시간 수행됩니다.
+                  </p>
+                </div>
+
+
+                <!-- DART/KIND 선택 라디오 -->
+                <div style="display:flex;gap:16px;margin:8px 0 4px 0;background:#f8fafc;padding:12px 16px;border-radius:8px;border:1px solid #e2e8f0;">
+                  <label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:var(--color-primary);cursor:pointer;">
+                    <input type="radio" name="target-portal" value="DART" checked onchange="handleTargetPortalChange(event)" /> 🏛️ 금융감독원 DART 최종 제출
+                  </label>
+                  <label style="display:flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:#2563eb;cursor:pointer;">
+                    <input type="radio" name="target-portal" value="KIND" onchange="handleTargetPortalChange(event)" /> 🌐 한국거래소 KIND 사전검토 제출 (filing.krx.co.kr)
+                  </label>
+                </div>
+
+                <button
+                  class="btn btn-primary btn-full btn-lg"
+                  id="btn-cert-auth"
+                  type="button"
+                  onclick="handleCertAuth()"
+                >
+                  🔒 DART 오픈 API 인증 및 최종 전자공시 제출
+                </button>
+
+
+              </div>
+            </div>
+          </div>
+
+          <!-- 제출 진행률 시각화 모달/박스 (초기 hidden) -->
+          <div id="submit-progress-box" style="display:none;background:#fff;border-radius:12px;padding:24px;border:1px solid var(--color-primary);box-shadow:var(--shadow-md);margin-top:16px;">
+            <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--color-primary);" id="progress-status-title">🌐 DART 외부 포털 연동 통신 중...</h4>
+            <div style="background:#e2e8f0;border-radius:8px;height:12px;overflow:hidden;margin-bottom:12px;">
+              <div id="submit-progress-bar" style="background:var(--color-primary);width:0%;height:100%;transition:width 0.4s ease;"></div>
+            </div>
+            <p style="font-size:0.85rem;color:var(--color-text-secondary);" id="progress-status-desc">인증서 서명 검증을 진행하고 있습니다...</p>
+          </div>
+
+          <!-- 제출 완료 박스 (초기 hidden, JS로 show) -->
+          <div class="submit-complete-box" id="submit-complete-box" role="status" aria-live="polite" style="display:none;">
+            <div class="submit-complete-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+            <h3 class="submit-complete-title" id="complete-doc-title">공시 포털 접수 제출 완료</h3>
+            <p class="submit-complete-desc" id="complete-doc-desc">공시 문서가 정상 승인되어 금융감독원 DART 전자공시 시스템에 성공적으로 접수 제출되었습니다.</p>
+
+            <div class="receipt-number-box">
+              <div>
+                <p class="receipt-number-label">DART 전자 접수번호</p>
+                <p class="receipt-number-value" id="receipt-number">DART-2026-0809-00123A</p>
+              </div>
+              <button class="btn btn-ghost btn-sm" id="btn-copy-receipt" type="button" title="접수번호 복사">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                Copy
+              </button>
+            </div>
+
+            <div class="submit-complete-actions">
+              <button class="btn btn-secondary btn-full" id="btn-download-receipt" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                DART 공식 접수증 다운로드
+              </button>
+              <button class="btn btn-primary btn-full" id="btn-download-dsd-submit" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                📂 .dsd 전자공시 바이너리 세이브 다운로드
+              </button>
+            </div>
+          </div>
+
+
+        </div><!-- /좌측 -->
+
+        <!-- 우측: 제출 상세 정보 + 타임라인 -->
+        <aside aria-label="제출 상세 정보 및 진행 상황">
+
+          <!-- 제출 상세 정보 카드 -->
+          <div class="submit-detail-card" style="margin-bottom:var(--space-6)">
+            <div class="submit-detail-title">제출 상세 정보</div>
+            <div class="submit-detail-rows" id="submit-detail-rows">
+              <!-- JS로 렌더링 -->
+            </div>
+          </div>
+
+          <!-- 진행 타임라인 카드 -->
+          <div class="submit-detail-card">
+            <div class="submit-detail-title">진행 타임라인</div>
+            <div style="padding: var(--space-4) var(--space-5)">
+              <div
+                id="progress-timeline"
+                class="timeline"
+                role="log"
+                aria-live="polite"
+                aria-label="제출 진행 타임라인"
+              >
+                <!-- JS로 렌더링 -->
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </div><!-- /.submit-layout -->
+    </main>
+
+  </div><!-- /.main-content -->
+</div><!-- /.app-shell -->
+
+<script src="js/api-client.js"></script>
+<script src="js/app.js"></script>
+<script src="js/submit.js"></script>
+</body>
+</html>

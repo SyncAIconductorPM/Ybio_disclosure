@@ -1,0 +1,92 @@
+# 문서 메타데이터
+document_info:
+  # 공시 문서의 종류 (고정값)
+  document_name: "사업보고서(유동화전문회사)"
+
+# 제출인 및 회사 기본 정보 (표지)
+cover_information:
+  # 사업연도 시작일 (AUNIT="PERIODFROM")
+  fiscal_year_from: "2023년 01월 01일"
+  # 사업연도 종료일 (AUNIT="PERIODTO")
+  fiscal_year_to: "2023년 12월 31일"
+  # 유동화전문회사명
+  company_name: "제일차유동화전문유한회사"
+  # 대표이사 성명
+  ceo_name: "홍길동"
+  # 본점 소재지 주소
+  headquarters_address: "서울특별시 영등포구 여의대로 123"
+  # 대표 전화번호
+  phone_number: "02-1234-5678"
+  # 회사 홈페이지 URL
+  homepage_url: "http://www.first-spc.com"
+  
+  # 공시 작성 책임자 정보
+  preparation_manager:
+    # 업무수탁기관 및 담당부서명
+    agency_and_department: "한국자산관리공사 유동화자산관리부"
+    # 직책
+    title: "팀장"
+    # 성명
+    name: "김철수"
+    # 연락처(전화)
+    contact_phone: "02-9876-5432"
+
+# 【 대표이사 등의 확인 】
+ceo_confirmation:
+  # 대표이사 확인서 그림파일 첨부 여부 및 파일명 (APPENDIX ATYPE="IMAGE")
+  signature_image_attached: true
+  signature_image_filename: "ceo_signature.jpg"
+
+# I. 유동화전문회사등에 관한 사항
+special_purpose_company_matters:
+  # 1. 회사의 개요: 회사의 설립 목적, 연혁, 자본금 등 기재
+  company_overview: "당사는 자산유동화에 관한 법률에 따라 2022년 설립된 유동화전문회사로서, 기초자산의 관리 및 처분을 목적으로 합니다."
+  # 2. 재무에 관한 사항: 요약 재무제표 및 주요 재무비율 등 기재
+  financial_matters: "제2기말 기준 총자산은 1,000억원, 부채는 990억원, 자본은 10억원입니다."
+  # 3. 기타 사항: 기타 회사 운영과 관련된 특이사항
+  other_matters: "당기 중 회사의 지배구조나 정관에 중대한 변경사항은 없습니다."
+
+# II. 자산관리자 및 자산의 관리방법 등
+asset_management_info:
+  # 1. 자산관리자의 개요: 자산관리 수탁기관의 명칭, 연혁, 주요 업무 등
+  asset_manager_overview: "자산관리자는 ㈜한국자산평가이며, 주요 업무는 유동화자산의 추심, 회수 및 제반 관리 업무입니다."
+  # 2. 자산의 관리방법 등
+  asset_management_methods:
+    # 1) 대금회수의 방법 및 관리절차 등
+    payment_collection_methods: "차주로부터 매월 25일 지정된 계좌로 원리금을 수취하여 익영업일에 자산관리계좌로 이체함."
+    # 2) 자산의 관리ㆍ운용ㆍ처분방법 및 절차
+    management_operation_disposal_procedures: "여유자금은 국공채 및 신용등급 A1 이상의 단기금융상품(MMF 등)에 안전하게 운용함."
+    # 3) 기타 자산의 관리ㆍ운용ㆍ처분에 관한 내용
+    other_asset_management_matters: "2회 이상 연체 발생 시 즉각적인 기한이익상실 통지 및 담보권 실행 절차에 착수함."
+
+# III. 자산유동화계획의 추진실적
+securitization_plan_performance:
+  # 1. 자산유동화계획의 개요: 최초 유동화계획 및 변경 내역
+  securitization_plan_overview: "2022년 5월 1일 금융위원회에 등록된 자산유동화계획에 따라 총 1,000억원의 유동화사채를 발행하였음."
+  
+  # 2. 유동화자산에 관한 사항
+  securitized_assets:
+    # 1) 유동화자산의 현황 (첨부파일로 제출 시 파일명 기재 가능, 개인정보 삭제 유의)
+    status_of_securitized_assets: "상세 내역은 첨부된 '유동화자산명세(공시용)' 파일 참조."
+    # 2) 유동화자산의 변동내역 및 분석내용: 조기상환, 연체, 부실 등 자산 상태 변화
+    changes_and_analysis_of_assets: "당기 중 50억원의 원금이 정상적으로 조기 상환되었으며, 현재 전체 자산의 연체율은 0.1% 미만으로 안정적임."
+    # 3) 유동화자산과 관련된 기타 필요한 사항 (부동산PF 진행현황 등 포함)
+    other_necessary_matters_and_pf_progress: "부동산PF 사업장 1곳의 공정률은 85%로 당초 계획 대비 정상 진행 중이며 우발채무 발생 징후 없음."
+  
+  # 3. 유동화증권에 관한 사항
+  securitized_securities:
+    # 1) 유동화증권의 현황: 발행된 유동화증권의 종류, 발행금액, 만기 등
+    status_of_securitized_securities: "선순위 유동화사채 900억원(만기 2025년 5월, 표면금리 4.5%), 후순위 100억원 발행 완료."
+    # 2) 유동화증권의 향후 상환계획 및 방법
+    redemption_plan_and_method: "기초자산에서 매월 발생하는 원리금 회수대금을 바탕으로 만기일에 일시 상환할 예정임."
+    # 3) 자금의 차입ㆍ운용에 대한 계획 및 실적
+    borrowing_and_operating_funds: "당기 중 신용공여기관으로부터 추가 외부 차입은 없었으며, 현재 유휴자금 10억원은 MMDA 계좌에 운용 중임."
+
+# IV. 그 밖의 투자자 보호를 위하여 필요한 사항
+investor_protection_matters:
+  # 1. 자산유동화계획 참여기관의 주요업무 및 담당자 등: 업무수탁자, 주관사, 법률고문 등 정보
+  participating_organizations_and_personnel: "업무수탁자: ㈜국민은행 (담당자: 이영희 과장, 연락처: 02-111-2222), 주관사: 미래에셋증권"
+  # 2. 기타: 소송, 우발채무 등 투자자 보호에 영향을 미치는 기타 사항
+  others: "보고서 제출일 현재 당사가 피소되거나 제소한 중대한 소송사건은 존재하지 않음."
+  # 3. 부속명세서: 감사보고서, 정관 등 부속 서류 목록
+  supplementary_schedules: "제2기 외부감사인 감사보고서 및 기타 재무제표 부속명세서는 별도 첨부문서 참조."

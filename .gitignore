@@ -1,0 +1,30 @@
+# Env & Secrets
+.env
+.env.local
+
+# Python
+__pycache__/
+
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+.pytest_cache/
+
+# Databases & SQLite
+*.db
+*.sqlite3
+
+# Temp outputs
+temp_dsd/
+output/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

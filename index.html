@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="공시업무 자동화 시스템 – Human-in-the-loop 대시보드. AI 기반 공시 초안 생성 및 검토 플랫폼." />
+  <title>대시보드 – Disclosure AI</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- 사이드바 (JS로 렌더링) -->
+  <aside id="sidebar" class="sidebar"></aside>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="main-content">
+
+    <!-- 상단 헤더 (JS로 렌더링) -->
+    <header id="page-header" class="page-header"></header>
+
+    <!-- 페이지 콘텐츠 -->
+    <main class="page-content" id="main-content">
+
+      <!-- 페이지 타이틀 -->
+      <div class="page-hero">
+        <h1 class="page-hero-title">대시보드 개요</h1>
+        <p class="page-hero-desc">검증 파이프라인 및 대기 중인 작업을 모니터링합니다.</p>
+      </div>
+
+      <!-- KPI 카드 그리드 (JS로 렌더링) -->
+      <div class="dashboard-kpi-grid" id="kpi-grid"></div>
+
+      <!-- 하단 그리드: 최근 활동 + 업로드 -->
+      <div class="dashboard-main-grid">
+
+        <!-- 최근 활동 테이블 -->
+        <div class="activity-card">
+          <div class="activity-card-header">
+            <h2 class="activity-card-title">최근 활동</h2>
+            <a href="#" class="link-muted">전체 로그 보기</a>
+          </div>
+          <div class="table-wrapper">
+            <table class="table" aria-label="최근 공시 활동 목록">
+              <thead>
+                <tr>
+                  <th scope="col">문서 번호</th>
+                  <th scope="col">고객사</th>
+                  <th scope="col">최종 수정일</th>
+                  <th scope="col">상태</th>
+                </tr>
+              </thead>
+              <tbody id="activity-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 공시 자료 입력 카드 (파일 업로드 & 텍스트 직접 입력) -->
+        <aside class="upload-card" aria-label="공시 원본 자료 입력">
+          <div style="margin-bottom: 12px;">
+            <h2 class="upload-card-title" style="margin-bottom: 4px;">공시 원본 자료 입력</h2>
+            <p style="font-size: 0.8rem; color: var(--color-text-light);">계약서 파일 또는 카톡·이메일·구두 전달 텍스트 입력</p>
+          </div>
+
+          <!-- 탭 메뉴 (파일 업로드 vs 텍스트 직접 입력) -->
+          <div class="tab-list" style="margin-bottom: 12px; border-bottom: 1px solid var(--color-border);">
+            <button type="button" class="tab-item active" id="tab-btn-file">📁 파일 업로드</button>
+            <button type="button" class="tab-item" id="tab-btn-text">💬 텍스트 직접 입력</button>
+          </div>
+
+          <!-- 탭 1: 파일 업로드 영역 -->
+          <div id="tab-content-file">
+            <div
+              class="upload-zone"
+              id="upload-zone"
+              role="button"
+              tabindex="0"
+              aria-label="파일을 드래그하거나 클릭하여 업로드"
+            >
+              <div class="upload-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 16 12 12 8 16"/>
+                  <line x1="12" y1="12" x2="12" y2="21"/>
+                  <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+                </svg>
+              </div>
+              <p class="upload-title">파일 드래그 &amp; 드롭</p>
+              <p class="upload-hint">지원 형식: PDF, DOCX, XLSX (Max 50MB)</p>
+            </div>
+
+            <!-- 숨김 파일 입력 -->
+            <input
+              type="file"
+              id="upload-file-input"
+              class="sr-only"
+              accept=".pdf,.docx,.xlsx"
+              multiple
+              aria-label="파일 선택"
+            />
+
+            <button
+              class="btn btn-secondary btn-full"
+              id="btn-browse-file"
+              type="button"
+              style="margin-top: 10px;"
+            >
+              파일 찾기
+            </button>
+          </div>
+
+          <!-- 탭 2: 텍스트 직접 입력 영역 (카카오톡, 이메일, 구두 전달 내용) -->
+          <div id="tab-content-text" style="display: none;">
+            <div class="form-group" style="margin-bottom: 10px;">
+              <label for="direct-text-input" class="form-label" style="font-size: 0.8rem;">카톡 메세지 / 이메일 / 구두 전달 내용</label>
+              <textarea
+                id="direct-text-input"
+                class="form-textarea"
+                rows="6"
+                placeholder="예: [카톡 내용] 김전무님이 보통주 10,000주 장내 매수하셨습니다. 체결일은 8월 8일 단가는 11,950원입니다. 공시 부탁드립니다."
+                style="font-size: 0.85rem;"
+              ></textarea>
+            </div>
+            <button
+              class="btn btn-primary btn-full"
+              id="btn-submit-direct-text"
+              type="button"
+            >
+              ⚡ 공시 이슈 텍스트 분석
+            </button>
+          </div>
+
+        </aside>
+
+
+      </div><!-- /.dashboard-main-grid -->
+    </main><!-- /#main-content -->
+  </div><!-- /.main-content -->
+</div><!-- /.app-shell -->
+
+<script src="js/api-client.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

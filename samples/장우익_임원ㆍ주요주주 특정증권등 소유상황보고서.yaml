@@ -1,0 +1,93 @@
+document_header:
+  report_name: "임원ㆍ주요주주 특정증권등 소유상황보고서" # 공시 문서명 (ACODE: 00634)
+  company_name: "와이바이오로직스" # 회사명 (AREGCIK: 01226234)
+  cik_code: "01226234" # DART 고유번호
+  extraction_date: "20260409" # 대상일자 (ACODE: OUTDATE)
+
+report_dates:
+  obligation_occurrence_date: "2026-04-09" # 보고의무발생일 (AUNIT: RPT_RSP_DT)
+  report_preparation_date: "2026-04-16" # 보고서작성기준일 (AUNIT: RPT_REF_DT)
+
+issuing_company_info:
+  company_name: "주식회사 와이바이오로직스" # 1. 발행회사명 (ACODE: CRP_NM)
+  corporation_type: "코스닥상장법인" # 법인구분 (AUNIT: CRP_DST)
+  company_code: "338840" # 종목코드 (ACODE: CRP_CD)
+  total_issued_shares: 15366681 # 발행주식 총수 (ACODE: FLT_SUM)
+
+reporter_info:
+  report_type: "신규" # 2. 보고구분 (AUNIT: RPT_DST)
+  reporter_classification: "개인(국내)" # 보고자 구분 (AUNIT: IFR_TP)
+  name_korean: "장우익" # 성명 한글 (ACODE: IFR_NM)
+  name_english_hanja: "張宇翼 (Jang Woo Ick)" # 성명 한자/영문 (ACODE: IFR_NM_HJ)
+  birth_date_or_reg_number: "561017" # 생년월일 또는 사업자등록번호 (ACODE: IFR_ID2)
+  address: "경기도 성남시 분당구 판교로" # 주소(본점소재지) (ACODE: IFR_ADR2)
+  executive_status: "등기임원" # 임원 등기여부 (AUNIT: STF_RYN)
+  position: "대표이사" # 직위명 (ACODE: STF_PSM)
+  appointment_date: "2022-09-15" # 선임일 (AUNIT: STF_APT_DT)
+  retirement_date: "-" # 퇴임일 (AUNIT: STF_RET_DT)
+  major_shareholder_status: "-" # 주요주주 여부 (AUNIT: MAIN_SH)
+  
+  contact_person:
+    affiliated_company: "(주)와이바이오로직스" # 소속회사 (ACODE: RSP_MAN_DPT)
+    department: "경영관리실" # 부서 (ACODE: RSP_MAN_DPT2)
+    position: "전무" # 직위 (ACODE: RSP_MAN_PST)
+    name: "이경호" # 성명 (ACODE: RSP_MAN)
+    phone_number: "042-93******" # 전화번호 (ACODE: RSP_MAN_PHN2)
+    fax_number: "042-86******" # 팩스번호 (ACODE: RSP_MAN_FAX)
+    email_address: "test@ybiologics.com" # 이메일 주소 (ACODE: RSP_MAN_EML)
+
+ownership_status:
+  summary: # 가. 소유 특정증권등의 수 및 소유비율
+    previous_report:
+      date: "-" # 직전보고서 작성기준일 (AUNIT: BFR_RPT_DT)
+      securities_count: 0 # 직전 특정증권등의 수 (ACODE: BFR_UN_CNT)
+      securities_ratio: 0.0 # 직전 특정증권등 비율 (ACODE: BFR_UN_RT)
+      stock_count: 0 # 직전 주식수 (ACODE: BFR_PS_CPT_CNT)
+      stock_ratio: 0.0 # 직전 주식 비율 (ACODE: BFR_PS_CPT_RT)
+    current_report:
+      date: "2026-04-16" # 이번보고서 작성기준일 (AUNIT: AFR_RPT_DT)
+      securities_count: 60000 # 이번 특정증권등의 수 (ACODE: AFR_UN_CNT)
+      securities_ratio: 0.39 # 이번 특정증권등 비율 (ACODE: AFR_UN_RT)
+      stock_count: 60000 # 이번 주식수 (ACODE: AFR_PS_CPT_CNT)
+      stock_ratio: 0.39 # 이번 주식 비율 (ACODE: AFR_PS_CPT_RT)
+    change_amount:
+      securities_count: 60000 # 특정증권등 증감 수 (ACODE: MDF_UN_CNT)
+      securities_ratio: 0.39 # 특정증권등 증감 비율 (ACODE: MDF_UN_RT)
+      stock_count: 60000 # 주식 증감 수 (ACODE: MDF_PS_CPT_CNT)
+      stock_ratio: 0.39 # 주식 증감 비율 (ACODE: MDF_PS_CPT_RT)
+
+  details_by_type: # 나. 특정증권등의 종류별 소유내역
+    share_certificates: 60000 # 주권 (ACODE: CPT_CNT)
+    warrants: 0 # 신주인수권이 표시된 것 (ACODE: ACC_CNT)
+    convertible_bonds: 0 # 전환사채권 (ACODE: CB_CNT)
+    bonds_with_warrants: 0 # 신주인수권부사채권 (ACODE: LN_CNT)
+    participating_bonds: 0 # 이익참가부사채권 (ACODE: BN_CNT)
+    exchangeable_bonds: 0 # 교환사채권 (ACODE: EB_CNT)
+    depository_receipts: 0 # 증권예탁증권 (ACODE: CF_CNT)
+    others: 0 # 기타 (ACODE: ET_CNT)
+    total_count: 60000 # 합계 주수 (ACODE: STK_CNT)
+    total_ratio: 0.39 # 합계 비율 (ACODE: STK_RT)
+    
+    holding_ratio_calculation: # 소유비율 산정 내역
+      total_issued_shares: 15366681 # 발행주식 총수 (J) (ACODE: VOT_STK_CNT)
+      non_stock_securities_count: 0 # 주식외 특정증권등의 수 (I) (ACODE: HLD_STK_CNT)
+      securities_ownership_ratio: 0.39 # 특정증권등의 소유비율 (ACODE: HLD_STK_RT)
+      stock_ownership_ratio: 0.39 # 주권의 소유비율 (ACODE: HLD_CMT_RT)
+
+  details_of_changes: # 다. 세부변동내역 (배열 형태)
+    items:
+      - reason_for_reporting: "주식매수선택권(+)" # 보고사유 (AUNIT: RPT_RSN)
+        date_of_change: "2026-04-09" # 변동일 (AUNIT: MDF_DM)
+        security_type: "보통주" # 특정증권등의 종류 (AUNIT: STR_KND)
+        before_change: 0 # 변동전 소유주식수 (ACODE: BFR_STK_CNT)
+        increase_or_decrease: 60000 # 증감 소유주식수 (ACODE: MDF_STK_CNT)
+        after_change: 60000 # 변동후 소유주식수 (ACODE: AFR_STK_CNT)
+        unit_price: 9767 # 취득/처분 단가(원) (ACODE: ACI_AMT2)
+        note: "주식매수선택권 행사가액" # 비고 (ACODE: RMK)
+        pre_disclosure_date: "-" # 거래계획 보고일자 (AUNIT: TRD_PLN_RD)
+    total:
+      before_change_sum: 0 # 변동전 주식수 합계 (ACODE: BFR_STK_SUM)
+      increase_or_decrease_sum: 60000 # 증감 주식수 합계 (ACODE: MDF_STK_SUM)
+      after_change_sum: 60000 # 변동후 주식수 합계 (ACODE: AFR_STK_SUM)
+      unit_price_sum: 9767 # 단가 합계 (ACODE: ACI_AMT_SUM2)
+      note_sum: "-" # 비고 합계 (ACODE: SUM_RMK)

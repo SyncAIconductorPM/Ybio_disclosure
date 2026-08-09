@@ -1,0 +1,45 @@
+# 주주총회소집결의 (KRX 웹 양식) — 랜덤 값 샘플
+# 이 YAML 은 Pydantic 모델로 엄격히 검증되므로 Literal 값은 고정 범위를 지킵니다.
+
+meeting_datetime:
+  date: ${today_plus_30}
+  time: "10:00"
+
+location: "대전광역시 유성구 테크노4로 17, B618호"
+
+record_date: ${today_minus_7}
+board_resolution_date: ${today}
+
+outside_directors:
+  attended: 1
+  absent: 0
+
+auditor_attended: "참석"
+meeting_type: "임시주주총회"
+
+other_notes: |
+  - 당사는 상법 제368조의4에 따라 금번 임시주주총회에 전자투표 및 전자위임장 제도를 채택하였으며,
+    주주는 총회장 출석 대신 전자적 방법으로 의결권을 행사할 수 있습니다. 구체적인 전자투표의 이용방법과
+    절차는 추후 공시되는 '주주총회 소집공고'를 참고해 주시기 바랍니다.
+
+related_disclosure: "${today_minus_14} 주주명부폐쇄기간 또는 기준일 설정"
+
+agenda:
+  - number: 1
+    subject: "정관 일부 변경의 건"
+    remarks: "개정 상법 반영"
+  - number: 2
+    subject: "감사(${random_name_ko_2}) 선임의 건(재선임)"
+  - number: 3
+    subject: "이사 보수 한도액 승인의 건"
+
+auditor_appointments:
+  - name: "${random_name_ko_2}"
+    birth_year_month: "1972-05"
+    term_years: 3
+    is_new: "재선임"
+    is_fulltime: "비상근"
+    career: |
+      現) 법무법인 윈(WIN) 대표변호사
+      前) 법무법인 베스트로 대표변호사
+      前) 대전 지방법원 판사

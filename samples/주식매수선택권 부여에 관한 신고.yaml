@@ -1,0 +1,79 @@
+# 주식매수선택권 부여에 관한 신고 — 랜덤 샘플 데이터
+# DSD 템플릿: templates/dsd/empty/주식매수선택권 부여에 관한 신고.dsd
+
+# ─── 회사 기본 정보 ───────────────────────────────────────────────
+company:
+  name: "에이비오바이올로직스 주식회사"
+  representative: "${random_name_ko}"
+  address: "${random_address} 17, B618호"
+  phone: "${random_phone_office}"
+  homepage: "www.ybiologics.com"
+  stock_code: "338100"
+
+# ─── 1. 부여대상자 ───────────────────────────────────────────────
+# (ACODE: GV_TRG_NM, GVRLT, CST_GV_CNT, PST_GV_CNT, OFF_PRC, GV_RMK)
+grantees:
+  - name: "${random_name_ko}"
+    relationship: "임원"          # 관계
+    common_stock_count: ${random_stock_count}  # 보통주식 (주)
+    other_stock_count: 0           # 기타주식 (주)
+    fair_value: "주당 3,500원"     # 공정가치
+    note: "-"                      # 비고
+  - name: "${random_name_ko_2}"
+    relationship: "직원"
+    common_stock_count: 10000
+    other_stock_count: 0
+    fair_value: "주당 3,500원"
+    note: "-"
+
+# ─── 2. 부여주식 총수 ─────────────────────────────────────────────
+# (ACODE: TOT_CST_GV_CNT, TOT_PST_GV_CNT)
+total_common_stock: ${random_big_stock_count}  # 당해 부여 후 총부여 보통주식
+total_other_stock: 0                            # 당해 부여 후 총부여 기타주식
+
+# ─── 3. 행사조건 ─────────────────────────────────────────────────
+# (AUNIT: EXE_BEGIN_DT, EXE_END_DT  /  ACODE: CST_EXE_PRC, PST_EXE_PRC)
+exercise:
+  start_date: "${today_plus_30}"     # 행사기간 시작일
+  end_date: "${today_plus_60}"       # 행사기간 종료일
+  common_price: "3500"               # 보통주 행사가격(원): CST_EXE_PRC
+  other_price: "-"                   # 기타주 행사가격: PST_EXE_PRC
+
+# ─── 4. 부여방법 ─────────────────────────────────────────────────
+# (AUNIT: SOPT_MTH2  — 드롭다운 코드)
+# 코드값: "신주교부", "자기주식교부", "차액정산"
+grant_method: "신주교부"             # AUNIT SOPT_MTH2
+
+# ─── 5. 부여결의 기관 ─────────────────────────────────────────────
+# (ACODE: GRT_ORG)
+grant_organ: "이사회"
+
+# ─── 6. 부여일자 ─────────────────────────────────────────────────
+# (AUNIT: GV_DT)
+grant_date: "${today}"
+
+# ─── 7. 부여근거 ─────────────────────────────────────────────────
+# (ACODE: GRT_BS)
+grant_basis: "정관 제OO조"
+
+# ─── 9. 이사회 결의일 ────────────────────────────────────────────
+# (AUNIT: DRC_DT)
+board_resolution_date: "${today_minus_7}"
+
+# ─── 이사회 구성원 참석 ─────────────────────────────────────────
+# (ACODE: ATD_CNT, NATD_CNT  /  AUNIT: ADT_ATD_YN)
+outside_directors:
+  attended: 2              # 사외이사 참석(명): ATD_CNT
+  absent: 0                # 사외이사 불참(명): NATD_CNT
+auditor_attended: "참석"   # 감사(감사위원) 참석 여부: ADT_ATD_YN
+
+# ─── 기타 기타주식 관련 사항 ──────────────────────────────────────
+# (ACODE: AOI_BAS, STO_CNT, ETC_CNT) — 기타주식 없는 경우 '-'
+other_stock_basis: "-"     # 정관의 근거
+other_stock_content: "-"   # 주식의 내용
+other_stock_etc: "-"       # 기타
+
+# ─── 10. 기타 투자판단 참고사항 ─────────────────────────────────
+# (자유 텍스트 섹션 — P 태그)
+additional_notes: |
+  해당사항 없음.

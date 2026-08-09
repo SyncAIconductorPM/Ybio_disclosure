@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>히스토리 – Disclosure AI</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <style>
+    .placeholder-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 60vh;
+      color: var(--color-text-light);
+      text-align: center;
+    }
+    .placeholder-content svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 1rem;
+      stroke: var(--color-text-light);
+      opacity: 0.5;
+    }
+    .placeholder-content h2 {
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <aside id="sidebar" class="sidebar"></aside>
+  <div class="main-content">
+    <header id="page-header" class="page-header"></header>
+    <div class="page-content" style="padding: 2rem;">
+      <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="display:flex; justify-shadow:space-between; align-items:center; margin-bottom: 1rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 600; color: var(--color-text);">공시 처리 히스토리 목록</h2>
+          <span id="search-status-tag" class="badge badge-primary" style="display:none;"></span>
+        </div>
+        <div class="table-wrapper">
+          <table class="table" aria-label="공시 처리 이력">
+            <thead>
+              <tr>
+                <th scope="col">문서 번호</th>
+                <th scope="col">공시 제목 / 서식명</th>
+                <th scope="col">최종 처리일</th>
+                <th scope="col">상태</th>
+                <th scope="col">작업</th>
+              </tr>
+            </thead>
+            <tbody id="history-tbody">
+              <tr>
+                <td><span class="doc-id">DISC-2026-9001</span></td>
+                <td><strong>주주총회 소집공고 (정기주주총회)</strong><br><span style="font-size:0.8rem;color:var(--color-text-secondary)">주주총회소집공고</span></td>
+                <td>2026-08-05</td>
+                <td><span class="badge badge-success">제출완료</span></td>
+                <td><a href="workspace.html" class="btn btn-sm btn-secondary">상세보기</a></td>
+              </tr>
+              <tr>
+                <td><span class="doc-id">DISC-2026-9002</span></td>
+                <td><strong>임원·주요주주 특정증권등 소유상황보고서 (장내 매수)</strong><br><span style="font-size:0.8rem;color:var(--color-text-secondary)">소유상황보고서</span></td>
+                <td>2026-08-09</td>
+                <td><span class="badge badge-primary">검토완료</span></td>
+                <td><a href="workspace.html" class="btn btn-sm btn-secondary">상세보기</a></td>
+              </tr>
+              <tr>
+                <td><span class="doc-id">DISC-2026-9003</span></td>
+                <td><strong>주식매수선택권 부여에 관한 신고 (핵심 연구인력)</strong><br><span style="font-size:0.8rem;color:var(--color-text-secondary)">스톡옵션</span></td>
+                <td>2026-08-08</td>
+                <td><span class="badge badge-success">제출완료</span></td>
+                <td><a href="workspace.html" class="btn btn-sm btn-secondary">상세보기</a></td>
+              </tr>
+              <tr>
+                <td><span class="doc-id">DISC-2026-9000</span></td>
+                <td><strong>면역항암제 독점 개발 및 상업화 권리 이전 계약</strong><br><span style="font-size:0.8rem;color:var(--color-text-secondary)">주요사항보고서</span></td>
+                <td>2026-08-01</td>
+                <td><span class="badge badge-success">제출완료</span></td>
+                <td><a href="workspace.html" class="btn btn-sm btn-secondary">상세보기</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    window.DisclosureApp?.ui.renderSidebar('history.html');
+    window.DisclosureApp?.ui.renderHeader('히스토리');
+
+    const tbody = document.getElementById('history-tbody');
+    const tag = document.getElementById('search-status-tag');
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = (urlParams.get('q') || '').trim();
+
+    if (query && tag) {
+      tag.textContent = `DB 정밀 검색어: "${query}"`;
+      tag.style.display = 'inline-block';
+    }
+
+    // 백엔드 로컬 DB (GET /api/disclosures/search) 연동 및 실시간 공시 히스토리 로드
+    try {
+      const res = await fetch(`http://localhost:8000/api/disclosures/search?q=${encodeURIComponent(query)}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.status === 'success' && data.disclosures && data.disclosures.length > 0) {
+          renderHistoryTable(data.disclosures);
+          console.log('[history] 실제 DB 공시 이력 로드 완료:', data.disclosures.length, '건');
+          return;
+        }
+      }
+    } catch (err) {
+      console.warn('[history] DB API 조회 생략 (로컬 세션 및 백업 이력 렌더링):', err);
+    }
+
+    // 백업 기본 이력 렌더링
+    renderFallbackHistory(query);
+  });
+
+  /**
+   * 실제 DB 검색 결과 동적 게시판 렌더링
+   */
+  function renderHistoryTable(records) {
+    const tbody = document.getElementById('history-tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+
+    records.forEach(rec => {
+      const tr = document.createElement('tr');
+      const badgeCls = rec.status === 'approved' || rec.status === 'submitted' ? 'badge-success' : 'badge-primary';
+      const statusText = rec.status === 'approved' ? '승인완료' : (rec.status === 'submitted' ? '제출완료' : '검토완료');
+
+      tr.innerHTML = `
+        <td><code style="font-family:monospace;color:var(--color-primary);">${rec.doc_id || 'DISC-2026-0001'}</code></td>
+        <td>
+          <div style="font-weight:600;color:var(--color-text);">${rec.title || '공시 주요사항보고서'}</div>
+          <div style="font-size:0.8rem;color:var(--color-text-secondary);">${rec.event || '공시서식'}</div>
+        </td>
+        <td>${rec.date || rec.updated_at || '2026-08-09'}</td>
+        <td><span class="badge ${badgeCls}">${statusText}</span></td>
+        <td><button class="btn btn-sm btn-secondary" onclick="viewHistoryDetail('${rec.doc_id}')">상세보기</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  /**
+   * 기본 이력 렌더링 (검색어 필터 적용)
+   */
+  function renderFallbackHistory(query) {
+    const tbody = document.getElementById('history-tbody');
+    if (!tbody) return;
+
+    let items = [
+      { doc_id: 'DISC-2026-9001', title: '주주총회 소집공고 (정기주주총회)', event: '주주총회소집공고', date: '2026-08-05', status: 'submitted', statusText: '제출완료' },
+      { doc_id: 'DISC-2026-9002', title: '임원ㆍ주요주주 특정증권등 소유상황보고서 (장내 매수)', event: '소유상황보고서', date: '2026-08-09', status: 'approved', statusText: '검토완료' },
+      { doc_id: 'DISC-2026-9003', title: '주식매수선택권 부여에 관한 신고 (핵심 연구인력)', event: '스톡옵션', date: '2026-08-08', status: 'submitted', statusText: '제출완료' },
+      { doc_id: 'DISC-2026-0000', title: '면역항암제 독점 개발 및 상업화 권리 이전 계약', event: '주요사항보고서', date: '2026-08-01', status: 'submitted', statusText: '제출완료' },
+    ];
+
+    // 세션 저장소에 최신 작성된 파싱 공시가 있다면 최상단 추가
+    try {
+      const saved = sessionStorage.getItem('disclosure_draft');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        items.unshift({
+          doc_id: parsed.doc_id || 'DISC-2026-NEW',
+          title: parsed.title || '최근 파싱 작성 공시 초안',
+          event: parsed.event || '공시서식',
+          date: parsed.date || '2026-08-09',
+          status: 'approved',
+          statusText: '작성 완료'
+        });
+      }
+    } catch(e) {}
+
+    if (query) {
+      const q = query.toLowerCase();
+      items = items.filter(it => it.title.toLowerCase().includes(q) || it.event.toLowerCase().includes(q) || it.doc_id.toLowerCase().includes(q));
+    }
+
+    renderHistoryTable(items);
+  }
+
+  function viewHistoryDetail(docId) {
+    window.DisclosureApp?.ui.showToast('info', '공시 상세 조회', `문서 번호 [${docId}]의 상세 이력과 DB 기록을 불러옵니다.`);
+    setTimeout(() => {
+      window.location.href = 'workspace.html';
+    }, 1000);
+  }
+</script>
+</body>
+</html>
+
+

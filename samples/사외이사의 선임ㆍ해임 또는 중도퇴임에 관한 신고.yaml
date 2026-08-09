@@ -1,0 +1,33 @@
+# 1. 사외이사 변경 발생일 (YYYY-MM-DD 형식)
+date_of_change: "2023-10-25"
+
+# 2. 사외이사 변경 인원수
+changed_personnel_count:
+  # 선임ㆍ재선임 인원수 (명)
+  appointed_count: 2
+  # 해임ㆍ중도퇴임 인원수 (명)
+  dismissed_count: 1
+
+# 3. 사외이사 변경 전 현황
+status_before_change:
+  # 변경 전 등기이사 총수 (명)
+  total_registered_directors: 7
+  # 변경 전 사외이사 총수 (명)
+  total_outside_directors: 3
+  # 변경 전 사외이사 비율 (%)
+  outside_director_ratio: 42.8
+
+# 4. 사외이사 변경 후 현황
+status_after_change:
+  # 변경 후 등기이사 총수 (명)
+  total_registered_directors: 8
+  # 변경 후 사외이사 총수 (명)
+  total_outside_directors: 4
+  # 변경 후 사외이사 비율 (%)
+  outside_director_ratio: 50.0
+
+# 5. 대규모법인 여부 (Y/N 또는 예/아니오)
+is_large_corporation: "Y"
+
+# 6. 기타 투자판단에 참고할 사항
+other_references: "본 사외이사 선임 건은 2023년 10월 25일 개최된 임시주주총회에서 원안대로 승인되었습니다."

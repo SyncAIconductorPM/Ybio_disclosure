@@ -1,0 +1,135 @@
+# 공시 문서 기본 정보
+document_info:
+  # 회사명 (COMPANY-NAME)
+  company_name: "주식회사 다트자동화"
+  # 문서명 (DOCUMENT-NAME)
+  document_name: "의결권대리행사권유참고서류"
+
+# 의결권 대리행사 권유 요약 (Summary of Proxy Solicitation)
+solicitation_summary:
+  # 권유자 성명 또는 법인명 (REC_NM)
+  solicitor_name: "홍길동"
+  # 권유자와 회사와의 관계 (REC_COP_RL)
+  relationship_to_company: "최대주주"
+  # 주주총회 소집공고일 (CVC_GMS_DT)
+  gms_announcement_date: "2024-03-05"
+  # 주주총회 개최일 (GMS_DT)
+  gms_date: "2024-03-28"
+  # 의결권 권유 시작일 (REC_BGN_DT)
+  solicitation_start_date: "2024-03-10"
+  # 의결권 권유 종료일 (REC_END_DT)
+  solicitation_end_date: "2024-03-27"
+  # 권유업무 위탁 여부 (REC_CSG_YN)
+  is_solicitation_entrusted: "Y"
+  # 의결권 대리행사 권유 취지 요약 (REC_PPS)
+  solicitation_purpose: "주주가치 제고를 위한 현금배당 확대 및 신임 이사진 선임"
+  
+  # 전자위임장 관련 정보
+  electronic_proxy:
+    # 전자위임장 수여 가능 여부 (DIG_WAR_YN)
+    is_available: "Y"
+    # 전자위임장 관리기관 (DIG_WAR_OP)
+    administrator_name: "한국예탁결제원"
+    # 전자위임장 인터넷 주소 (DIG_WAR_URL)
+    website_url: "https://evote.ksd.or.kr"
+  
+  # 전자/서면투표 관련 정보
+  voting_method:
+    # 투표 방식 (VOTE_TYPE)
+    type: "전자투표 및 서면투표"
+    # 전자투표 관리기관 (DIG_VOTE_OP)
+    administrator_name: "한국예탁결제원"
+    # 전자투표 인터넷 주소 (DIG_VOTE_URL)
+    website_url: "https://evote.ksd.or.kr"
+  
+  # 주주총회 목적사항(안건) 리스트 (GMS_OBJ)
+  gms_agendas:
+    - "제1호 의안: 제25기 재무제표 승인의 건"
+    - "제2호 의안: 사내이사 선임의 건 (후보 홍길동)"
+
+# 의결권 대리행사 권유업무 대리인 목록 (Proxy solicitation agents)
+solicitation_agents:
+  - # 대리인 성명 또는 회사명 (RAGT_NM)
+    agent_name: "주식회사 위임대행"
+    # 대리인 구분 (RAGT_GB)
+    category: "법인"
+    # 소유 주식의 종류 (RAGT_STK_KND)
+    share_type: "보통주"
+    # 소유 주식수 (RAGT_STK)
+    number_of_shares: "0"
+    # 회사와의 관계 (RAGT_COP_RL)
+    relationship_to_company: "해당사항 없음"
+    # 권유자와의 관계 (RAGT_REC_RL)
+    relationship_to_solicitor: "위임계약관계"
+    # 비고 (RAGT_ETC)
+    notes: "대행 수수료 지급"
+
+# 피권유자의 범위 (Scope of a solicited voting right holder)
+solicited_voter_scope:
+  # 피권유자 범위 상세 설명 (PREC_SCOP)
+  description: "2023년 12월 31일 현재 당사 주주명부에 기재되어 있는 보통주 주주 전체"
+
+# 의결권 대리행사의 구체적 권유 취지
+detailed_solicitation_purpose:
+  # 구체적 권유 취지 1000자 이내 기재 (R_PURPOSE)
+  description: "당사의 현재 경영진은 지난 3년간 지속적인 영업손실을 기록했습니다. 이에 주주가치를 제고하고 책임경영을 실현하고자..."
+
+# 의결권 위임 방법에 관한 사항 (Delegation of voting rights methods)
+proxy_delegation_methods:
+  # 전자적 방법 (전자위임장)
+  electronic_proxy_details:
+    # 전자위임장 수여기간 (DIG_WAR_PER)
+    period: "2024년 03월 15일 09시 ~ 2024년 03월 27일 17시"
+    # 기타 추가 안내사항 (DIG_WAR_ETC)
+    additional_info: "공동인증서, 금융인증서 등을 통한 본인인증이 필요합니다."
+  
+  # 서면 위임장 교부 방법 (Delivery method of proxy form)
+  written_proxy_delivery:
+    # 피권유자에게 직접 교부 여부 (ISS_TYPE1)
+    delivered_in_person: "Y"
+    # 우편 또는 팩스(FAX) 송부 여부 (ISS_TYPE2)
+    delivered_by_mail_or_fax: "Y"
+    # 인터넷 홈페이지 게시 여부 (ISS_TYPE3)
+    posted_on_website: "N"
+    # 전자우편(이메일) 송부 여부 (ISS_TYPE4)
+    sent_by_email: "N"
+    # 주주총회 소집 통지와 함께 송부 여부 (ISS_TYPE5)
+    sent_with_gms_notice: "Y"
+    
+  # 피권유자가 위임장을 수여하는 방법 (Method of issuing a letter of proxy)
+  issuing_proxy_method:
+    # 수여 방법 상세 설명 (PREC_WAY)
+    description: "동봉된 위임장 용지에 찬반을 표시하고 서명 또는 날인한 후, 회송용 봉투에 넣어 우편으로 발송해 주시기 바랍니다."
+    
+  # 기타 의결권 위임 방법 (ETC_WAY)
+  other_methods: "해당사항 없음"
+
+# 주주총회에서 의결권의 직접 행사에 관한 사항 (Direct exercise of voting rights at GMS)
+general_meeting_details:
+  # 일시 텍스트 (GMS_DNT)
+  date_and_time: "2024년 03월 28일 오전 09시 00분"
+  # 장소 (GMS_LOC)
+  location: "서울특별시 영등포구 여의대로 123, 다트빌딩 1층 대강당"
+  
+  # 전자투표 상세 사항
+  electronic_voting_details:
+    # 전자투표 가능 여부 (DVOTE_YN)
+    is_available: "Y"
+    # 전자투표 기간 (DIG_VOTE_PER)
+    period: "2024-03-18 09:00 ~ 2024-03-27 17:00"
+    # 기타 추가 안내사항 (DIG_VOTE_ETC)
+    additional_info: "마지막 날은 오후 5시까지만 투표가 가능하오니 유의하시기 바랍니다."
+    
+  # 서면투표 상세 사항
+  paper_voting_details:
+    # 서면투표 가능 여부 (SVOTE_YN)
+    is_available: "N"
+    # 서면투표 기간 (SVOTE_PER)
+    period: "-"
+    # 서면투표 방법 (SVOTE_WAY)
+    method: "-"
+    # 기타 추가 안내사항 (SVOTE_ETC)
+    additional_info: "-"
+    
+  # 기타 주주총회 의결권 행사와 관련한 사항 (GMS_ETC)
+  other_matters_regarding_voting: "총회장 참석 시 반드시 본인 신분증을 지참하여 주시기 바랍니다."

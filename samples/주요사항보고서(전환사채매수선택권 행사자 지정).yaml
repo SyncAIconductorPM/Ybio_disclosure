@@ -1,0 +1,44 @@
+document_info:
+  document_name: "주요사항보고서(전환사채매수선택권행사자지정)" # 보고서 문서명
+
+bond_info:
+  ordinal: "제 5 회" # 사채의 회차 (SEQ_NO)
+  bond_type: "무기명식 이권부 무보증 사모 전환사채" # 사채의 종류 (PL_KND)
+  issue_date: "2023-04-10" # 사채발행일자 (CB_ISSU_DT)
+  issue_method: "사모발행" # 사채발행방법 (CB_ISSU_MTH)
+  maturity_date: "2026-04-10" # 사채만기일 (CB_EXP_DT)
+
+designation_details:
+  is_designated_or_transferred: "행사자 지정" # 행사자 지정 또는 양도 여부 (EXE_DSG_YN)
+  designated_bond_amount: 1500000000 # 매수선택권 행사자 지정(양도) 전환사채의 권면/전자등록 금액(원) (CB_EXE_AMT)
+  total_bond_amount: 5000000000 # 해당 전환사채의 권면/전자등록 총액(원) (CB_TOT_AMT)
+  designated_ratio: 30.0 # 지정비율(%) (CB_EXE_RT)
+  designation_date: "2024-05-15" # 행사자 지정일 또는 양도일자 (EXE_DSG_DT)
+
+consideration_info:
+  consideration_amount: 30000000 # 행사자 지정대가 또는 양도금액(원) (EXE_DSG_PRC)
+  basis_of_calculation: "외부평가기관의 공정가치 평가액을 기초로 당사자 간 합의" # 산정근거 (EXE_DSG_RSN)
+  expected_payment_date: "2024-05-20" # 행사자 지정대가/양도대금 수령(예정)일 (EXE_PAY_DT)
+
+conversion_matters:
+  conversion_ratio: 100.0 # 전환비율(%) (CV_RT)
+  conversion_price: 10000 # 보고일 현재 전환가액(원/주) (CV_PRC)
+  shares_to_be_issued:
+    stock_type: "기명식 보통주" # 전환에 따라 발행할 주식 종류 (CV_STK_KND)
+    number_of_shares: 150000 # 전환에 따라 발행할 주식수 (CV_STK_CNT)
+    ratio_to_total_shares: 1.5 # 주식총수 대비 비율(%) (CV_STK_RT)
+  conversion_claim_period:
+    start_date: "2024-04-10" # 전환청구기간 시작일 (SB_BGN_DT)
+    end_date: "2026-03-10" # 전환청구기간 종료일 (SB_END_DT)
+
+fair_trade_commission:
+  is_subject_to_report: "해당사항 없음" # 공정거래위원회 신고대상 여부 (TRD_YN)
+
+participants_list:
+  - participant_name: "김철수" # 대상자명 (ISSU_NM)
+    relationship: "대표이사(최대주주)" # 회사 또는 최대주주와의 관계 (RLT)
+    selection_reason: "경영권 방어 및 책임경영 강화 목적" # 선정경위 (ISSU_SLT)
+    transaction_history_and_plan: "최근 6개월 간 거래 없음 / 향후 전환권 행사 후 장기 보유 계획" # 지정일(양도일) 전후 6월이내 거래내역 및 계획 (ISSU_HST)
+    designated_bond_amount: 1500000000 # 매수선택권 양도 또는 행사자가 지정된 전환사채의 권면/전자등록 금액(원) (ISSU_CB_PRC)
+    consideration_amount: 30000000 # 지정대가 또는 양도금액 (ISSU_AMT)
+    note: "-" # 비고 (ISSU_ETC)

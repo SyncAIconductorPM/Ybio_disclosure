@@ -1,0 +1,47 @@
+# ===================================================================
+# YBioLogics 가상 공시 이슈 데이터 3 - 임원·주요주주 특정증권등 소유상황보고서
+# ===================================================================
+
+event: 임원·주요주주 특정증권등 소유상황보고서
+reporter: 김신약
+corp_code: "00812345"
+stock_code: "338840"
+company_name: (주)와이바이오로직스
+title: 임원·주요주주 특정증권등 소유상황보고서 (신임 연구소장 장내 매수)
+
+date: "2026-08-09"
+report_reason: 신규 임원 선임 및 장내 매수에 따른 주식 소유상황 보고
+
+# 보고자 및 임원 상세
+reporter_details:
+  name: 김신약
+  resident_id_front: "780512"
+  address: 서울특별시 서초구 반포대로 123
+  position: 전무이사 (연구소장)
+  is_registered_officer: false
+  is_major_shareholder: false
+
+# 증권 소유 현황 (보통주)
+stock_details:
+  security_type: 보통주
+  before_share_count: 0
+  before_ratio: "0.00%"
+  change_share_count: 10000
+  after_share_count: 10000
+  after_ratio: "0.07%"
+
+# 세부 변동 내역
+transaction_history:
+  - trade_date: "2026-08-07"
+    trade_type: 장내매수 (+)
+    share_count: 5000
+    unit_price: 11800
+    amount: 59000000
+  - trade_date: "2026-08-08"
+    trade_type: 장내매수 (+)
+    share_count: 5000
+    unit_price: 12100
+    amount: 60500000
+
+notes:
+  - 장내 매수를 통한 책임경영 의지 표명 및 회사 성장에 대한 신뢰 도모

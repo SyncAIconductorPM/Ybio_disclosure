@@ -1,0 +1,186 @@
+document_header:
+  obligation_occurrence_date: "2023-10-20" # 보고의무발생일 (자본시장법상 보고 의무가 발생한 날짜)
+  report_preparation_date: "2023-10-24" # 보고서작성기준일 (실제 보고서를 작성한 기준 일자)
+  reporting_entity_name: "주식회사 한국투자" # 보고자 성명 또는 명칭
+
+summary_information:
+  issuing_company_name: "삼성전자" # 발행회사명 (주식을 발행한 대상 기업명)
+  relationship_to_issuing_company: "최대주주" # 발행회사와의 관계 (예: 최대주주, 계열사 등)
+  report_type: "신규보고" # 보고구분 (신규보고, 변경보고 등)
+  
+  holdings_and_ratio: # 보유주식등의 수 및 보유비율 요약
+    previous_report:
+      total_shares: 5000000 # 직전 보고서의 보유주식등의 수
+      holding_ratio: 8.50 # 직전 보고서의 보유비율(%)
+    current_report:
+      total_shares: 6000000 # 이번 보고서의 보유주식등의 수
+      holding_ratio: 10.20 # 이번 보고서의 보유비율(%)
+      
+  major_contracts: # 주요계약체결 주식등의 수 및 비율
+    previous_report:
+      contract_shares: 0 # 직전 보고서 주요계약체결 주식등의 수
+      contract_ratio: 0.00 # 직전 보고서 주요계약체결 비율(%)
+    current_report:
+      contract_shares: 100000 # 이번 보고서 주요계약체결 주식등의 수
+      contract_ratio: 0.17 # 이번 보고서 주요계약체결 비율(%)
+      
+  voting_rights_summary: # 의결권의 수 및 보유비율
+    previous_report:
+      voting_rights_count: 5000000 # 직전 보고서 의결권의 수
+      voting_rights_ratio: 8.50 # 직전 보고서 의결권 보유비율(%)
+    current_report:
+      voting_rights_count: 6000000 # 이번 보고서 의결권의 수
+      voting_rights_ratio: 10.20 # 이번 보고서 의결권 보유비율(%)
+      
+  reason_for_reporting: "장내매수에 따른 지분율 변동 및 주요계약 체결" # 보고사유 요약 설명
+
+issuing_company_details:
+  company_name: "삼성전자" # 회사명
+  company_code: "005930" # 종목코드 또는 회사코드
+  corporation_type: "유가증권시장상장법인" # 법인구분 (유가증권, 코스닥, 비상장 등)
+  total_voting_shares: 58828249 # 의결권 있는 발행주식 총수
+  total_voting_rights: 58828249 # 의결권의 총수
+
+reporting_entity_details:
+  reporting_classification: "개별" # 보고자 구분 (연명, 개별 등)
+  entity_type: "국내법인" # 법인 형태 구분 (개인, 국내법인, 외국법인 등)
+  nationality: "대한민국" # 국적
+  basis_for_classification: "상법상 주식회사" # 보고자 구분 기재 근거 (법령상 조합/단체인 경우)
+  name_kr: "주식회사 한국투자" # 성명 또는 명칭 (한글)
+  name_en: "Korea Investment Corp." # 성명 또는 명칭 (영문/한자)
+  address: "서울특별시 영등포구 여의대로" # 주소 (본점 소재지)
+  registration_number: "110111-1234567" # 생년월일 또는 사업자등록번호/법인등록번호
+  occupation_or_business: "금융투자업" # 직업 또는 사업내용
+  relationship_to_issuer: "주요주주" # 발행회사와의 관계
+  
+  contact_info: # 업무상 연락처 및 담당자 정보
+    company: "주식회사 한국투자" # 소속회사
+    department: "컴플라이언스부" # 소속 부서
+    position: "팀장" # 직위
+    name: "김철수" # 담당자 성명
+    phone: "02-1234-5678" # 전화번호
+    fax: "02-1234-5679" # 팩스번호
+    email: "compliance@koreainvest.com" # 이메일 주소
+    
+  corporate_specifics: # 법인/단체인 경우 구체적 사항
+    legal_personality: "영리법인" # 법적 성격
+    total_assets: 50000000000 # 자산총액 또는 운용자산총액 (원)
+    total_liabilities: 20000000000 # 부채총액 (원)
+    total_equity: 30000000000 # 자본총액 (원)
+    issued_capital: 5000000000 # 자본금 (원)
+    representative: "이몽룡" # 대표자 성명
+    decision_making_body: "이사회" # 의사결정기구
+    largest_shareholder: "한국홀딩스" # 최대주주 명칭
+    largest_shareholder_ratio: 45.5 # 최대주주 지분율(%)
+
+specially_related_parties: # 특별관계자 목록 (배열 형태)
+  - sequence_no: 1 # 연번
+    name: "박영희" # 특별관계자 성명/명칭
+    category: "친인척" # 구분 (친족, 계열사 등)
+    relationship_details: "보고자(대표이사)의 배우자" # 보고자와의 구체적 관계
+    registration_number: "800101" # 생년월일 또는 사업자등록번호 (개인은 앞 6자리)
+    nationality: "대한민국" # 국적
+    address: "서울특별시 강남구 테헤란로" # 주소 또는 소재지
+    occupation: "임원" # 직업 또는 사업내용
+    relationship_to_issuer: "미등기임원" # 발행회사와의 관계
+
+collective_investment_entities: # 집합투자업자 목록 (해당하는 경우 기재)
+  - sequence_no: 1 # 연번
+    name: "미래에셋자산운용" # 집합투자업자 명칭
+    registration_number: "120-81-12345" # 사업자등록번호
+    target_scheme: "미래에셋 배당포커스 펀드" # 대상 집합투자기구
+    nationality: "대한민국" # 국적
+    address: "서울특별시 종로구" # 주소
+    remark: "해당사항 없음" # 비고
+
+holdings_change_details: # 보유주식등의 수 및 보유비율 증감 상세내역
+  previous_report: # 직전 보고서 기준
+    reporting_entity: "주식회사 한국투자" # 본인 성명
+    related_parties_count: 1 # 특별관계자 수
+    total_shares: 5000000 # 주식등의 수 (주)
+    total_ratio: 8.50 # 비율 (%)
+    common_shares: 5000000 # 주권(주식수)
+    common_shares_ratio: 8.50 # 주권 비율 (%)
+  current_report: # 이번 보고서 기준
+    reporting_entity: "주식회사 한국투자" # 본인 성명
+    related_parties_count: 1 # 특별관계자 수
+    total_shares: 6000000 # 주식등의 수 (주)
+    total_ratio: 10.20 # 비율 (%)
+    common_shares: 6000000 # 주권(주식수)
+    common_shares_ratio: 10.20 # 주권 비율 (%)
+  change_amount: # 증감 내역
+    total_shares_diff: 1000000 # 주식등 증감 수
+    total_ratio_diff: 1.70 # 증감 비율
+    common_shares_diff: 1000000 # 주권 증감 수
+    common_shares_ratio_diff: 1.70 # 주권 증감 비율
+
+holding_purpose:
+  category: "단순투자" # 보유목적 (경영권 영향, 일반투자, 단순투자 등)
+  details: "자본시장법 시행령에 따른 단순 투자 목적으로 장내 주식을 매수함. 경영권에 영향을 주기 위한 목적 없음." # 보유목적 상세 설명
+
+change_reasons:
+  change_method: "장내매수" # 변동방법 (장내매수, 시간외매매, 유상증자 참여 등)
+  reason_for_fluctuation: "저평가된 주가 수준을 고려한 포트폴리오 편입 비율 확대" # 변동사유 (수량/비율이 변한 이유)
+  reason_for_modification: "해당사항 없음" # 변경사유 (단순 정정 또는 보유목적 변경 등 기재사항이 바뀐 이유)
+
+detailed_holdings_breakdown_by_type: # 주식등의 종류별 보유내역 (보고자 및 특별관계자별)
+  - relationship: "보고자" # 관계
+    name: "주식회사 한국투자" # 성명(명칭)
+    registration_number: "110111-1234567" # 사업자/생년월일
+    voting_shares: 5000000 # 의결권 있는 주식 (주권)
+    redeemable_shares: 0 # 상환될 주식
+    convertible_shares: 0 # 전환될 주식
+    warrants: 0 # 신주인수권이 표시된 것
+    convertible_bonds: 0 # 전환사채권
+    bonds_with_warrants: 0 # 신주인수권부사채권
+    exchangeable_bonds: 0 # 교환사채권
+    depositary_receipts: 0 # 증권예탁증권
+    others: 0 # 기타
+    total_shares: 5000000 # 합계 주수
+    total_ratio: 8.50 # 합계 비율
+  - relationship: "특별관계자"
+    name: "박영희"
+    registration_number: "800101"
+    voting_shares: 1000000
+    redeemable_shares: 0
+    convertible_shares: 0
+    warrants: 0
+    convertible_bonds: 0
+    bonds_with_warrants: 0
+    exchangeable_bonds: 0
+    depositary_receipts: 0
+    others: 0
+    total_shares: 1000000
+    total_ratio: 1.70
+    
+total_holding_ratio_calculation: # 전체 보유비율 산정
+  total_voting_shares: 58828249 # 발행주식총수 (I)
+  potential_shares: 0 # 보유 잠재주식의 수 (H)
+  stocks_holding_ratio: 10.20 # 주식등의 보유비율 (%)
+  common_shares_holding_ratio: 10.20 # 주권의 보유비율 (%)
+
+detailed_voting_rights_breakdown: # 주식등의 종류별 의결권 내역
+  - relationship: "보고자"
+    name: "주식회사 한국투자"
+    registration_number: "110111-1234567"
+    share_type: "보통주" # 주식의 종류
+    voting_rights_per_share: 1 # 1주당 의결권 수
+    voting_rights_count: 5000000 # 의결권 수
+    multiple_voting_duration: "-" # 복수의결권 존속기간
+    potential_voting_rights: 0 # 잠재주식 의결권 수
+    total_voting_rights: 5000000 # 합계 의결권 수
+    total_ratio: 8.50 # 합계 비율
+    
+holdings_by_possession_type: # 소유에 준하는 보유형태별 내역 (시행령 제142조 기준)
+  - relationship: "보고자"
+    name: "주식회사 한국투자"
+    registration_number: "110111-1234567"
+    subparagraph_1: 0 # 제1호 (자기명의 소유) - 0으로 예시, 실제는 여기에 5000000 기재될 수 있음
+    subparagraph_2: 0 # 제2호
+    subparagraph_3: 0 # 제3호
+    subparagraph_4: 0 # 제4호
+    subparagraph_5: 0 # 제5호
+    subparagraph_6: 0 # 제6호
+    subparagraph_7: 0 # 제7호
+    total_shares: 5000000 # 합계 주수
+    total_ratio: 8.50 # 합계 비율

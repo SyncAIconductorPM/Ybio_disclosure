@@ -1,0 +1,53 @@
+# ===================================================================
+# YBioLogics 가상 공시 이슈 데이터 2 - 주식매수선택권 부여에 관한 신고
+# ===================================================================
+
+event: 주식매수선택권 부여에 관한 신고
+reporter: (주)와이바이오로직스
+corp_code: "00812345"
+stock_code: "338840"
+ceo_nm: 장우익
+title: 주식매수선택권 부여에 관한 신고 (핵심 연구인력 및 임원 대상)
+
+date: "2026-08-09"
+board_resolution_date: "2026-08-08"
+grant_date: "2026-08-08"
+
+# 주식 수량 및 발행 정보
+grant_method: 신주발행 교부 또는 자기주식 교부
+stock_type: 보통주식
+common_stock_count: 150000
+other_stock_count: 0
+total_granted_shares: 150000
+
+# 발행주식 총수 대비 비율
+total_issued_shares: 13500000
+ratio: "1.11%"
+
+# 행사 가격 및 행사 기간
+exercise_price: 12500
+exercise_start_date: "2028-08-09"
+exercise_end_date: "2033-08-08"
+
+# 대상자 정보
+recipients:
+  - name: 김신약
+    position: 연구소장 (전무)
+    granted_count: 50000
+    relation: 임원 (미등기전무)
+  - name: 이바이오
+    position: 수석연구원
+    granted_count: 30000
+    relation: 직원
+  - name: 박임상
+    position: 수석연구원
+    granted_count: 30000
+    relation: 직원
+  - name: 기타 연구원 4명
+    position: 연구원
+    granted_count: 40000
+    relation: 직원
+
+business_rules:
+  grant_purpose: 우수 연구 인력의 장기 근속 유도 및 R&D 성과 창출 동기 부여
+  exercise_conditions: 부여일로부터 2년 이상 재직한 경우에 한하여 행사 가능

@@ -1,0 +1,112 @@
+document_info:
+  obligation_date: "2023-10-15" # 보고의무발생일 (RPT_RSP_DT)
+  preparation_date: "2023-10-20" # 보고서작성기준일 (RPT_REF_DT)
+
+issuing_company:
+  company_name: "가짜전자주식회사" # 회사명 (CRP_NM)
+  corp_type: "유가증권시장상장법인" # 법인구분 (CRP_DST)
+  company_code: "005930" # 회사코드 (CRP_CD)
+  total_issued_shares: "10000000" # 발행주식 총수 (FLT_SUM)
+  total_voting_rights: "10000000" # 의결권의 총수 (VR_CNT)
+
+reporting_entity:
+  report_type: "신규보고" # 보고구분 (RPT_DST)
+  entity_type: "개인" # 보고자 구분 (IFR_TP)
+  name_kr: "홍길동" # 성명/명칭 한글 (IFR_NM)
+  name_en_hanja: "洪吉童" # 성명/명칭 한자 또는 영문 (IFR_NM_HJ)
+  id_number: "750101" # 생년월일(6자리) 또는 사업자등록번호 (IFR_ID2)
+  address: "서울특별시 강남구 테헤란로" # 주소 (읍/면/동 까지만 기재) (IFR_ADR2)
+  relationship_to_company:
+    is_executive: "등기임원" # 임원 등기여부 (STF_RYN)
+    position: "대표이사" # 직위명 (STF_PSM)
+    appointment_date: "2020-03-25" # 선임일 (STF_APT_DT)
+    retirement_date: "" # 퇴임일 (해당시 기재) (STF_RET_DT)
+    is_principal_shareholder: "해당" # 주요주주 여부 (MAIN_SH)
+  contact_info:
+    company: "가짜전자주식회사" # 업무상 연락처 - 소속회사 (RSP_MAN_DPT)
+    department: "공시팀" # 업무상 연락처 - 부서 (RSP_MAN_DPT2)
+    position: "팀장" # 업무상 연락처 - 직위 (RSP_MAN_PST)
+    name: "김철수" # 담당자 성명 (RSP_MAN)
+    phone: "02-1234-5678" # 전화번호 (RSP_MAN_PHN2)
+    fax: "02-1234-5679" # 팩스번호 (RSP_MAN_FAX)
+    email: "chulsoo.kim@fakeelec.com" # 이메일 주소 (RSP_MAN_EML)
+
+ownership_status:
+  summary:
+    previous_report:
+      date: "2023-05-10" # 직전보고서 작성기준일 (BFR_RPT_DT)
+      securities_count: "50000" # 직전보고서 특정증권등의 수 (BFR_UN_CNT)
+      securities_ratio: "0.5" # 직전보고서 특정증권등 비율 (BFR_UN_RT)
+      shares_count: "50000" # 직전보고서 주식수 (BFR_PS_CPT_CNT)
+      shares_ratio: "0.5" # 직전보고서 주식 비율 (BFR_PS_CPT_RT)
+      voting_rights_securities_count: "50000" # 직전 특정증권 의결권 수 (BFR_VR_CNT1)
+      voting_rights_securities_ratio: "0.5" # 직전 특정증권 의결권 비율 (BFR_VR_RT1)
+      voting_rights_shares_count: "50000" # 직전 의결권 주식 수 (BFR_VR_CNT2)
+      voting_rights_shares_ratio: "0.5" # 직전 의결권 주식 비율 (BFR_VR_RT2)
+    current_report:
+      date: "2023-10-20" # 이번보고서 작성기준일 (AFR_RPT_DT)
+      securities_count: "60000" # 이번보고서 특정증권등의 수 (AFR_UN_CNT)
+      securities_ratio: "0.6" # 이번보고서 특정증권등 비율 (AFR_UN_RT)
+      shares_count: "60000" # 이번보고서 주식수 (AFR_PS_CPT_CNT)
+      shares_ratio: "0.6" # 이번보고서 주식 비율 (AFR_PS_CPT_RT)
+      voting_rights_securities_count: "60000" # 이번 특정증권 의결권 수 (AFR_VR_CNT1)
+      voting_rights_securities_ratio: "0.6" # 이번 특정증권 의결권 비율 (AFR_VR_RT1)
+      voting_rights_shares_count: "60000" # 이번 의결권 주식 수 (AFR_VR_CNT2)
+      voting_rights_shares_ratio: "0.6" # 이번 의결권 주식 비율 (AFR_VR_RT2)
+      
+  by_security_type:
+    stocks: "60000" # 주권 (A) (CPT_CNT)
+    warrants: "0" # 신주인수권이 표시된 것 (B) (ACC_CNT)
+    convertible_bonds: "0" # 전환사채권 (C) (CB_CNT)
+    bonds_with_warrants: "0" # 신주인수권부사채권 (D) (LN_CNT)
+    participating_bonds: "0" # 이익참가부사채권 (E) (BN_CNT)
+    exchangeable_bonds: "0" # 교환사채권 (F) (EB_CNT)
+    depositary_receipts: "0" # 증권예탁증권 (G) (CF_CNT)
+    others: "0" # 기타 (H) (ET_CNT)
+    total_count: "60000" # 합계 주수 (STK_CNT)
+    total_ratio: "0.6" # 합계 비율 (STK_RT)
+    
+  holding_ratio:
+    total_issued_shares: "10000000" # 발행주식총수 (J) (VOT_STK_CNT)
+    non_stock_securities_count: "0" # 주식외 특정증권등의 수 (I) (HLD_STK_CNT)
+    securities_ownership_ratio: "0.6" # 특정증권등의 소유비율 (HLD_STK_RT)
+    stock_ownership_ratio: "0.6" # 주권의 소유비율 (HLD_CMT_RT)
+
+  voting_rights_by_security_type:
+    share_classes:
+      - class_type: "보통주" # 주권의 종류 (CPT_KND)
+        rights_per_share: "1" # 1주당 의결권 수 (CPT_PVR_CNT)
+        voting_rights_count: "60000" # 의결권 수 (CPT_VR_CNT)
+        multiple_voting_period: "" # 복수의결권 존속기간 (CPT_MVR_PRD)
+    non_stock_voting_rights: "0" # 주식외 특정증권 의결권 수 (UN_VR_CNT)
+    total_voting_rights: "60000" # 합계 의결권 수 (TOT_VR_CNT)
+    total_voting_ratio: "0.6" # 합계 의결권 비율 (TOT_VR_RT)
+    
+  voting_rights_holding_ratio:
+    total_voting_rights_issued: "10000000" # 의결권 총수 (L) (MVOT_VR_CNT)
+    non_stock_voting_rights_held: "0" # 주식외 특정증권등의 의결권 수 (MHLD_VR_CNT)
+    securities_voting_ownership_ratio: "0.6" # 특정증권등의 의결권 소유비율 (MHLD_VR_RT)
+    stock_voting_ownership_ratio: "0.6" # 주권의결권 소유비율 (MHLD_CVR_RT)
+
+detailed_changes:
+  stock_changes:
+    - reason: "장내매수" # 보고사유 (RPT_RSN)
+      change_date: "2023-10-15" # 변동일 (결제일 기준) (MDF_DM)
+      security_type: "보통주" # 특정증권등의 종류 (STR_KND)
+      before_count: "50000" # 변동전 주식수 (BFR_STK_CNT)
+      change_count: "10000" # 증감 주식수 (MDF_STK_CNT)
+      after_count: "60000" # 변동후 주식수 (AFR_STK_CNT)
+      unit_price: "72000" # 취득/처분 단가 (ACI_AMT2)
+      note: "" # 비고 (RMK)
+      pre_disclosure_date: "" # 거래계획 보고일자 (TRD_PLN_RD)
+      
+  voting_rights_changes:
+    - reason: "장내매수" # 보고사유 (RPT_RSN)
+      change_date: "2023-10-15" # 변동일 (MDF_DM)
+      security_type: "보통주" # 특정증권등의 종류 (STR_KND)
+      before_count: "50000" # 변동전 의결권 수 (BFR_VR_CNT)
+      change_count: "10000" # 증감 의결권 수 (MDF_VR_CNT)
+      after_count: "60000" # 변동후 의결권 수 (AFR_VR_CNT)
+      unit_price: "72000" # 취득/처분 단가 (ACI_VR_AMT2)
+      note: "" # 비고 (RMK)
+      pre_disclosure_date: "" # 거래계획 보고일자 (TRD_PLN_RD)

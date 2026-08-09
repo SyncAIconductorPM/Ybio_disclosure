@@ -1,0 +1,528 @@
+/* ==========================================================================
+   pages.css – 페이지별 특화 스타일
+   공시업무 자동화 시스템 (Human-in-the-loop)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   index.html – 대시보드
+   -------------------------------------------------------------------------- */
+
+/* KPI 그리드 */
+.dashboard-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+/* 대시보드 하단 그리드 (최근 활동 + 업로드) */
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-6);
+}
+
+/* 최근 활동 카드 */
+.activity-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.activity-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.activity-card-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.link-muted {
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.link-muted:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+/* 업로드 사이드 카드 */
+.upload-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.upload-card-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* 페이지 제목 영역 */
+.page-hero {
+  margin-bottom: var(--space-8);
+}
+
+.page-hero-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.page-hero-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   workspace.html – Human-in-the-loop 워크스페이스
+   -------------------------------------------------------------------------- */
+
+/* 시스템 활성 배지 */
+.system-active-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-success);
+}
+
+.system-active-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-success);
+  animation: pulse 2s infinite;
+}
+
+/* DART/KIND 에디터 섹션 */
+.editor-section {
+  margin-bottom: var(--space-6);
+}
+
+.editor-section-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.editor-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+/* 공시 문서 미리보기 (결재함) */
+.doc-preview {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 100%;
+}
+
+.doc-preview-body {
+  padding: var(--space-8) var(--space-10);
+  font-family: 'Times New Roman', Georgia, serif;
+  line-height: 1.8;
+  font-size: 0.9rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 260px);
+}
+
+.doc-preview-heading {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.doc-preview-heading h1 {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  margin-bottom: var(--space-2);
+}
+
+.doc-preview-heading h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: bold;
+  margin: var(--space-4) 0;
+}
+
+.doc-section-title {
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  margin: var(--space-6) 0 var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-text-primary);
+}
+
+/* 강조 텍스트 (불일치 하이라이트) */
+.doc-highlight-warning {
+  background-color: rgba(220, 38, 38, 0.12);
+  border-bottom: 2px solid var(--color-danger);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.doc-highlight-warning:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background-color: var(--color-text-primary);
+  color: white;
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  z-index: 10;
+  font-family: var(--font-family);
+}
+
+/* 재무 테이블 */
+.financial-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+  font-size: 0.875rem;
+}
+
+.financial-table th,
+.financial-table td {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.financial-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  text-align: right;
+}
+
+.financial-table td:not(:first-child) {
+  text-align: right;
+}
+
+.financial-table .row-total {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+/* --------------------------------------------------------------------------
+   approval.html – 결재함
+   -------------------------------------------------------------------------- */
+
+/* 문서 메타 헤더 (결재함 상단) */
+.doc-meta-header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.doc-meta-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.doc-meta-period-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  background-color: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+.doc-meta-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.doc-meta-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+/* 결재 우측 패널 */
+.approval-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.approval-action-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.approval-action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+/* AI 검증 점수 */
+.ai-score-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: conic-gradient(var(--color-danger) calc(var(--score, 85) * 1%), var(--color-border) 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ai-score-inner {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-danger-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-danger);
+}
+
+/* --------------------------------------------------------------------------
+   submit.html – 최종 제출
+   -------------------------------------------------------------------------- */
+
+/* 공동인증서 인증 박스 */
+.cert-auth-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border-left: 4px solid var(--color-primary);
+}
+
+.cert-auth-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.cert-auth-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary);
+}
+
+.cert-auth-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.cert-auth-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+/* USB 아이콘 영역 */
+.usb-icon-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  width: 100px;
+}
+
+.usb-icon-area svg {
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+}
+
+.cert-form-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+/* 제출 상세 정보 카드 */
+.submit-detail-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.submit-detail-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.submit-detail-rows {
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.submit-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-detail-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.submit-detail-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.submit-detail-value.highlight-success {
+  color: var(--color-success);
+}
+
+/* 제출 완료 박스 */
+.submit-complete-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-success-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  text-align: center;
+  display: none;
+}
+
+.submit-complete-box.show {
+  display: block;
+  animation: fadeIn var(--transition-normal) both;
+}
+
+.submit-complete-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-success-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+  border: 2px solid var(--color-success-border);
+}
+
+.submit-complete-icon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-success);
+}
+
+.submit-complete-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.submit-complete-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.receipt-number-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-4);
+  text-align: left;
+}
+
+.receipt-number-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.receipt-number-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  font-family: monospace;
+  color: var(--color-text-primary);
+}
+
+.submit-complete-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+/* 제출 페이지 레이아웃 */
+.submit-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.submit-page-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.submit-page-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
