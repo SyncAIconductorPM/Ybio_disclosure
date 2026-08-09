@@ -474,6 +474,9 @@ async function updateFormLabelsByEvent(eventName) {
     console.warn('[workspace] YAML 스키마 API 호출 생략 (로컬 규칙 적용):', schemaErr);
   }
 
+  const purposeTitleEl = document.getElementById('purpose-section-title');
+  const purposeTextareaEl = document.getElementById('field-purpose');
+
   // 동적 라벨 매핑 규칙
   if (eventName.includes('주주총회') || eventName.includes('주총')) {
     if (labelBoardDate) labelBoardDate.textContent = '이사회 결의일';
@@ -482,6 +485,9 @@ async function updateFormLabelsByEvent(eventName) {
     if (tdCounterparty) tdCounterparty.textContent = '개최 장소 / 대상';
     if (tdAssetType) tdAssetType.textContent = '주요 의결 안건';
     if (tdRatio) tdRatio.textContent = '의결권 비율';
+
+    if (purposeTitleEl) purposeTitleEl.textContent = '개최 목적 및 기타 참고사항';
+    if (purposeTextareaEl) purposeTextareaEl.placeholder = '주주총회 개최 목적 및 주요 상정 안건에 대한 상세 내용을 입력하세요.';
   } else if (eventName.includes('주식매수') || eventName.includes('스톡옵션')) {
     if (labelBoardDate) labelBoardDate.textContent = '부여 이사회 결의일';
     if (labelCompleteDate) labelCompleteDate.textContent = '행사 종료일';
@@ -489,6 +495,9 @@ async function updateFormLabelsByEvent(eventName) {
     if (tdCounterparty) tdCounterparty.textContent = '부여 대상자';
     if (tdAssetType) tdAssetType.textContent = '부여 주식 종류';
     if (tdRatio) tdRatio.textContent = '발행주식 총수 대비 비율';
+
+    if (purposeTitleEl) purposeTitleEl.textContent = '부여 목적 및 주요 부여 조건';
+    if (purposeTextareaEl) purposeTextareaEl.placeholder = '임직원에 대한 주식매수선택권 부여 목적 및 주주총회 승인 조건 등을 입력하세요.';
   } else if (eventName.includes('소유상황') || eventName.includes('임원') || eventName.includes('지분')) {
     if (labelBoardDate) labelBoardDate.textContent = '매수/체결 일자';
     if (labelCompleteDate) labelCompleteDate.textContent = '보고 완료 일자';
@@ -496,6 +505,19 @@ async function updateFormLabelsByEvent(eventName) {
     if (tdCounterparty) tdCounterparty.textContent = '보고자 성명 및 직위';
     if (tdAssetType) tdAssetType.textContent = '취득/변동 방법';
     if (tdRatio) tdRatio.textContent = '소유 주식 비율';
+
+    if (purposeTitleEl) purposeTitleEl.textContent = '변동 사유 및 특정증권 취득/처분 목적';
+    if (purposeTextareaEl) purposeTextareaEl.placeholder = '주식 및 특정증권 소유 상황의 변동 사유와 목적을 기술하세요.';
+  } else if (eventName.includes('기술이전') || eventName.includes('계약') || eventName.includes('라이선스')) {
+    if (labelBoardDate) labelBoardDate.textContent = '계약 체결일';
+    if (labelCompleteDate) labelCompleteDate.textContent = '계약 만료일';
+    if (tdAmount) tdAmount.textContent = '총 계약금 및 마일스톤 (KRW)';
+    if (tdCounterparty) tdCounterparty.textContent = '계약 상대방 (파트너사)';
+    if (tdAssetType) tdAssetType.textContent = '대상 파이프라인/기술명';
+    if (tdRatio) tdRatio.textContent = '최근 매출액 대비 비율';
+
+    if (purposeTitleEl) purposeTitleEl.textContent = '계약 목적 및 기대 효과';
+    if (purposeTextareaEl) purposeTextareaEl.placeholder = '기술이전/라이선스 계약의 세부 목적, 대상 물질 및 기대 효과를 기술하세요.';
   } else {
     if (labelBoardDate) labelBoardDate.textContent = '계약/이사회 결의일';
     if (labelCompleteDate) labelCompleteDate.textContent = '완료/만료 예정일';
@@ -503,8 +525,12 @@ async function updateFormLabelsByEvent(eventName) {
     if (tdCounterparty) tdCounterparty.textContent = '계약/거래 상대방';
     if (tdAssetType) tdAssetType.textContent = '자산/파이프라인 유형';
     if (tdRatio) tdRatio.textContent = '최근 매출액 대비 비율';
+
+    if (purposeTitleEl) purposeTitleEl.textContent = '공시 상세 사유 및 목적';
+    if (purposeTextareaEl) purposeTextareaEl.placeholder = '해당 공시 사항에 대한 상세 사유 및 주요 목적을 입력하세요.';
   }
 }
+
 
 
 /**
