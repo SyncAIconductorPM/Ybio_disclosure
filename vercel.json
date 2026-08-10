@@ -1,60 +1,24 @@
 {
   "version": 2,
-  "name": "ybio-disclosure",
-  "builds": [
-    {
-      "src": "api/main.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "css/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "js/**",
-      "use": "@vercel/static"
-    }
+  "framework": null,
+  "installCommand": "npm install --ignore-scripts || true",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/main.py" },
+    { "source": "/system/(.*)", "destination": "/api/main.py" },
+    { "source": "/dart/(.*)", "destination": "/api/main.py" },
+    { "source": "/kind/(.*)", "destination": "/api/main.py" },
+    { "source": "/parse/(.*)", "destination": "/api/main.py" },
+    { "source": "/classify/(.*)", "destination": "/api/main.py" },
+    { "source": "/docs", "destination": "/api/main.py" },
+    { "source": "/openapi.json", "destination": "/api/main.py" },
+    { "source": "/redoc", "destination": "/api/main.py" }
   ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/system/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/dart/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/kind/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/parse/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/classify/(.*)",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/docs",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/openapi.json",
-      "dest": "api/main.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+  "functions": {
+    "api/main.py": {
+      "runtime": "python3.12",
+      "maxDuration": 60
     }
-  ]
+  }
 }
