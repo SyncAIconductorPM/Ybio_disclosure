@@ -1,24 +1,18 @@
 {
-  "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "npm install --ignore-scripts || true",
+  "installCommand": "npm install",
   "buildCommand": "npm run build",
-  "outputDirectory": ".",
+  "outputDirectory": "public",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/main.py" },
-    { "source": "/system/(.*)", "destination": "/api/main.py" },
-    { "source": "/dart/(.*)", "destination": "/api/main.py" },
-    { "source": "/kind/(.*)", "destination": "/api/main.py" },
-    { "source": "/parse/(.*)", "destination": "/api/main.py" },
-    { "source": "/classify/(.*)", "destination": "/api/main.py" },
-    { "source": "/docs", "destination": "/api/main.py" },
-    { "source": "/openapi.json", "destination": "/api/main.py" },
-    { "source": "/redoc", "destination": "/api/main.py" }
-  ],
-  "functions": {
-    "api/main.py": {
-      "runtime": "python3.12",
-      "maxDuration": 60
-    }
-  }
+    { "source": "/api/(.*)", "destination": "/api/index" },
+    { "source": "/system/(.*)", "destination": "/api/index" },
+    { "source": "/dart/(.*)", "destination": "/api/index" },
+    { "source": "/kind/(.*)", "destination": "/api/index" },
+    { "source": "/parse/(.*)", "destination": "/api/index" },
+    { "source": "/classify/(.*)", "destination": "/api/index" },
+    { "source": "/docs", "destination": "/api/index" },
+    { "source": "/openapi.json", "destination": "/api/index" },
+    { "source": "/redoc", "destination": "/api/index" }
+  ]
 }
