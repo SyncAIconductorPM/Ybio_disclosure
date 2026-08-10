@@ -1,8 +1,8 @@
 {
   "name": "ybio-disclosure",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "scripts": {
-    "build": "true"
+    "build": "node -e \"process.exit(0)\""
   }
 }

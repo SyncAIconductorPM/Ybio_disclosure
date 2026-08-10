@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "true",
-  "buildCommand": "true",
+  "installCommand": "node -e \"process.exit(0)\"",
+  "buildCommand": "node -e \"process.exit(0)\"",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index.py" },
     { "source": "/system/(.*)", "destination": "/api/index.py" },
