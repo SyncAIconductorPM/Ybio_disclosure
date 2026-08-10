@@ -1,10 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "version": 2,
   "framework": null,
-  "installCommand": "echo no-deps",
-  "buildCommand": "echo build-ok",
-  "outputDirectory": ".",
+  "installCommand": "true",
+  "buildCommand": "true",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index.py" },
     { "source": "/system/(.*)", "destination": "/api/index.py" },
