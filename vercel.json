@@ -1,18 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
   "framework": null,
-  "installCommand": "npm install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "public",
+  "installCommand": "echo no-deps",
+  "buildCommand": "echo build-ok",
+  "outputDirectory": ".",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index" },
-    { "source": "/system/(.*)", "destination": "/api/index" },
-    { "source": "/dart/(.*)", "destination": "/api/index" },
-    { "source": "/kind/(.*)", "destination": "/api/index" },
-    { "source": "/parse/(.*)", "destination": "/api/index" },
-    { "source": "/classify/(.*)", "destination": "/api/index" },
-    { "source": "/docs", "destination": "/api/index" },
-    { "source": "/openapi.json", "destination": "/api/index" },
-    { "source": "/redoc", "destination": "/api/index" }
+    { "source": "/api/(.*)", "destination": "/api/index.py" },
+    { "source": "/system/(.*)", "destination": "/api/index.py" },
+    { "source": "/dart/(.*)", "destination": "/api/index.py" },
+    { "source": "/kind/(.*)", "destination": "/api/index.py" },
+    { "source": "/parse/(.*)", "destination": "/api/index.py" },
+    { "source": "/classify/(.*)", "destination": "/api/index.py" },
+    { "source": "/docs", "destination": "/api/index.py" },
+    { "source": "/openapi.json", "destination": "/api/index.py" },
+    { "source": "/redoc", "destination": "/api/index.py" }
   ]
 }
